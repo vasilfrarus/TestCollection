@@ -12,6 +12,8 @@
 		849621A01F59DF8200F8F097 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8496219E1F59DF8200F8F097 /* Main.storyboard */; };
 		849621A21F59DF8200F8F097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849621A11F59DF8200F8F097 /* Assets.xcassets */; };
 		849621A51F59DF8200F8F097 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849621A31F59DF8200F8F097 /* LaunchScreen.storyboard */; };
+		849621AD1F59E0B100F8F097 /* ChatControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849621AC1F59E0B100F8F097 /* ChatControllerView.swift */; };
+		849621AF1F59E40000F8F097 /* KeyboardTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849621AE1F59E40000F8F097 /* KeyboardTracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		849621A11F59DF8200F8F097 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		849621A41F59DF8200F8F097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		849621A61F59DF8200F8F097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849621AC1F59E0B100F8F097 /* ChatControllerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatControllerView.swift; sourceTree = "<group>"; };
+		849621AE1F59E40000F8F097 /* KeyboardTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,12 @@
 			children = (
 				8496219A1F59DF8200F8F097 /* AppDelegate.swift */,
 				8496219C1F59DF8200F8F097 /* ViewController.swift */,
+				849621AE1F59E40000F8F097 /* KeyboardTracker.swift */,
 				8496219E1F59DF8200F8F097 /* Main.storyboard */,
 				849621A11F59DF8200F8F097 /* Assets.xcassets */,
 				849621A31F59DF8200F8F097 /* LaunchScreen.storyboard */,
 				849621A61F59DF8200F8F097 /* Info.plist */,
+				849621AC1F59E0B100F8F097 /* ChatControllerView.swift */,
 			);
 			path = TestCollection;
 			sourceTree = "<group>";
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8496219D1F59DF8200F8F097 /* ViewController.swift in Sources */,
+				849621AF1F59E40000F8F097 /* KeyboardTracker.swift in Sources */,
 				8496219B1F59DF8200F8F097 /* AppDelegate.swift in Sources */,
+				849621AD1F59E0B100F8F097 /* ChatControllerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
