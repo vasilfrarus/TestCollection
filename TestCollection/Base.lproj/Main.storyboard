@@ -23,21 +23,31 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zoD-p6-PeZ">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="irk-ZP-Noz">
-                                    <size key="itemSize" width="278" height="183"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="0.62366224315068497" colorSpace="calibratedRGB"/>
+                                <collectionViewLayout key="collectionViewLayout" id="dbs-KF-FNU" customClass="ChatCollectionViewLayout" customModule="TestCollection" customModuleProvider="target"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="AnH-9H-Rrz">
-                                        <rect key="frame" x="48.5" y="0.0" width="278" height="183"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="AnH-9H-Rrz" customClass="CollectionViewCell" customModule="TestCollection" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="278" height="183"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kj7-bO-deX">
+                                                    <rect key="frame" x="0.0" y="5" width="50" height="40"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Kj7-bO-deX" secondAttribute="bottom" constant="5" id="SAJ-2j-i8E"/>
+                                            <constraint firstItem="Kj7-bO-deX" firstAttribute="top" secondItem="AnH-9H-Rrz" secondAttribute="top" constant="5" id="Vq6-BJ-tMX"/>
+                                            <constraint firstItem="Kj7-bO-deX" firstAttribute="leading" secondItem="AnH-9H-Rrz" secondAttribute="leading" id="cqq-5p-WHw"/>
+                                            <constraint firstAttribute="trailing" secondItem="Kj7-bO-deX" secondAttribute="trailing" id="dvr-ea-Hmn"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="view" destination="Kj7-bO-deX" id="Lej-uR-f4i"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -73,7 +83,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.16232638890000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="6Uf-RI-R6K"/>
                         <constraint firstAttribute="bottom" secondItem="h89-GD-TvE" secondAttribute="bottom" id="9WJ-rr-gRa"/>
