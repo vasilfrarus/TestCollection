@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     @IBOutlet var chatInputView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private var bottomInset: CGFloat {
+        return inputBarBottomConstraint.constant + chatInputView.bounds.height
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,8 @@ class ViewController: UIViewController {
         configureBackgroundTap()
         
         collectionView.dataSource = self
+        collectionView.layoutIfNeeded()
+        setBottomInset()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +74,13 @@ class ViewController: UIViewController {
         
         cells.append(CGSize(width: CGFloat(width), height: CGFloat(height)))
         printTest("cell added")
-        collectionView.reloadData()
+        
+        let newItemIndex = cells.count - 1
+        collectionView.insertItems(at: [IndexPath(item: newItemIndex, section: 0)])
+        
+        view.layoutIfNeeded()
+        setBottomInset()
+        collectionView.scrollToBottom()
     }
     
     
@@ -107,6 +118,26 @@ class ViewController: UIViewController {
         (self.view as! ChatControllerView).bmaInputAccessoryView = keyboardTracker.trackingView
         
     }
+    
+    
+    func setBottomInset() {
+        
+        let collectionViewHeight = collectionView.bounds.height
+        let collectionViewContentHeight = collectionView.contentSize.height
+        
+        let topInset = max(collectionViewHeight - collectionViewContentHeight - bottomInset, 0.0)
+        
+        if collectionView.contentInset.top != topInset {
+            collectionView.contentInset.top = topInset
+//            collectionView.scrollIndicatorInsets.top = topInset
+        }
+
+        if collectionView.contentInset.bottom != bottomInset {
+            collectionView.contentInset.bottom = bottomInset
+//            collectionView.scrollIndicatorInsets.bottom = bottomInset
+        }
+    }
+    
 
 
 }
@@ -125,4 +156,21 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
     
+}
+
+extension UIScrollView {
+    func scrollToBottom() {
+        let contentHeight = contentSize.height
+        
+        let topInset = contentInset.top
+        let bottomInset = contentInset.bottom
+        
+        let scrollViewHeight = bounds.height
+        
+        let newOffset = contentHeight - scrollViewHeight + bottomInset
+        if (newOffset > 0.0) {
+            contentOffset.y = newOffset
+        }
+        
+    }
 }
