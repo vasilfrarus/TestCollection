@@ -8,6 +8,11 @@
 
 import UIKit
 
+var cells: [CGSize] = []
+
+func printTest(_ string: String) {
+    print("Test_Collection: \(string)")
+}
 
 class ViewController: UIViewController {
 
@@ -16,12 +21,16 @@ class ViewController: UIViewController {
     var inputBarBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet var chatInputView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureInputView()
         configureBackgroundTap()
+        
+        collectionView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +62,17 @@ class ViewController: UIViewController {
     func tapOnBackground(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-
+    
+    @IBAction func buttonTapped(_ sender: Any) {
+        let height = arc4random_uniform(30) + 20
+        let width = arc4random_uniform(50) + 100
+        
+        cells.append(CGSize(width: CGFloat(width), height: CGFloat(height)))
+        printTest("cell added")
+        collectionView.reloadData()
+    }
+    
+    
     func configureInputView() {
         
         
@@ -92,3 +111,18 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cells.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
+        
+        cell.contentView.backgroundColor = UIColor.brown
+        
+        return cell
+    }
+    
+}
